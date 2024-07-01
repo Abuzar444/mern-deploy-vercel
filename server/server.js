@@ -52,6 +52,10 @@ app.use('/api/v1/users', authenticateUser, userRouter);
 app.use('/api/v1/auth', authRouter);
 
 app.get('*', (req, res) => {
+  res.status(200).json({ message: "Hello" })
+})
+
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
 });
 
@@ -66,7 +70,7 @@ const port = process.env.PORT || 5100;
 try {
   await mongoose.connect(process.env.MONGO_URL);
   app.listen(port, () => {
-    console.log(`server running on PORT ${port}...`);
+    console.log(`server running on PORT ${5000}...`);
   });
 } catch (error) {
   console.log(error);
