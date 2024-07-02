@@ -59,8 +59,6 @@ app.get('*', (req, res) => {
   res.status(200).json({ message: "Hello" })
 })
 
-// why it don't work
-
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
 });
